@@ -25,7 +25,10 @@ router.get('/', (req, res) => {
       company: req.body.company
     });
   
-    newcontact.save().then(contact => res.json(contact));
+    newcontact
+    .save()
+    .then(contact => res.json(contact))
+    .catch(err => res.status(404).json({ success: false }));
   });
   
   
